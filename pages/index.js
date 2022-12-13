@@ -23,18 +23,18 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>AI-Friend</title>
+        <link rel="icon" href="/ai.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <img src="/aii.svg" className={styles.icon} />
+        <h3>Enter topic</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="Start typing..."
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
