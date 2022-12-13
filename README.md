@@ -1,1 +1,1 @@
-Simplified example of integration of openai api in Next.js
+Simplified example of integration of openai in Next.js
