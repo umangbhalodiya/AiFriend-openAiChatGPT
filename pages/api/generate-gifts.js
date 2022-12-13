@@ -4,7 +4,6 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-
 export default async function (req, res) {
   const { priceMin, priceMax, gender, age, hobbies } = req.body;
   const completion = await openai.createCompletion({

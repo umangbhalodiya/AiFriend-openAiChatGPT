@@ -26,7 +26,6 @@ export default function Home() {
         <title>AI-Friend</title>
         <link rel="icon" href="/ai.png" />
       </Head>
-
       <main className={styles.main}>
         <img src="/aii.svg" className={styles.icon} />
         <h3>Enter topic</h3>
