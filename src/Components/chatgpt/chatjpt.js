@@ -26,6 +26,9 @@ const Chatgpt = () => {
     <div>
       <div className="gpt-container">
         <div className="gpt-text">Ask a Question to your AI friend</div>
+
+        <div className="section-types"></div>
+        <div className="section-inputs"></div>
         <div className="gpt-input">
           <input
             className="gpt-input-box"
