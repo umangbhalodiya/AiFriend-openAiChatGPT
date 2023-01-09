@@ -37,9 +37,7 @@ const Chatgpt = () => {
                   <div key={i} className="api-item">{api.name.title}</div>
                 )
               })}
-
             </div>
-
           </div>
         ) : <div className="section-inputs">
           <div className="gpt-input">
