@@ -4,62 +4,96 @@ import { apis } from "../ApiObjects/apis";
 const { Configuration, OpenAIApi } = require("openai");
 
 const Chatgpt = () => {
-  console.log("apis", apis);
-  const [input, setInput] = useState("");
-  const [response, setResponse] = useState("");
-  const [sectionType, setSectionType] = useState("select");
   const configuration = new Configuration({
     apiKey: " ", //  <----- put your API key here   //    visit and register at  (https://beta.openai.com/account/api-keys) for Api keys
   });
   const openai = new OpenAIApi(configuration);
+  const [response, setResponse] = useState("");
+  const [api, setApi] = useState({});
+  const [sectionType, setSectionType] = useState("select");
+
+  const handleApi = (value) => {
+    let newObj = {
+      name: { ...api.name },
+      props: { ...api.props, prompt: value },
+    };
+    setApi(newObj);
+  };
   const handleSubmit = async () => {
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: input,
-      temperature: 0,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    });
-    console.log("res", response.data.choices.values().next());
+    const response = await openai.createCompletion(api.props);
     setResponse(response.data.choices[0].text);
+  };
+
+  const handleBack = () => {
+    setSectionType("select");
+    setApi({});
+    setResponse("");
   };
 
   return (
     <div>
       <div className="gpt-container">
         <div className="gpt-text">Ask a Question to your AI friend</div>
-        {sectionType === "select" ? (
+        {sectionType === "select" && (
           <div className="section-types">
             <div className="api-boxes">
-              {apis.map((api, i) => {
+              {apis.map((item, i) => {
                 return (
-                  <div key={i} className="api-item">{api.name.title}</div>
-                )
+                  <div
+                    key={i}
+                    className="api-item"
+                    style={{ background: item.name.color }}
+                    onClick={() => {
+                      setSectionType("inputs");
+                      setApi(item);
+                    }}
+                  >
+                    {item?.name?.title}
+                  </div>
+                );
               })}
             </div>
           </div>
-        ) : <div className="section-inputs">
-          <div className="gpt-input">
-            <input
-              className="gpt-input-box"
-              type="text"
-              onChange={(e) => {
-                setInput(e.target.value);
-              }}
-            />
+        )}
+        {sectionType === "inputs" && (
+          <div className="section-inputs">
+            <div className="gpt-api" style={{ color: api?.name?.color }}>
+              {api?.name?.title}
+            </div>
+            <div className="gpt-input">
+              <input
+                className="gpt-input-box"
+                placeholder="Ask your question here"
+                type="text"
+                onChange={(e) => {
+                  handleApi(e.target.value);
+                }}
+              />
+            </div>
+            <div className="btn-grp">
+              <button
+                className="gpt-btn-blue"
+                onClick={() => {
+                  handleBack();
+                }}
+              >
+                Back
+              </button>
+              <button
+                className="gpt-btn"
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                Submit
+              </button>
+            </div>
+
+            <div className="gpt-response">
+              <i> {response}.</i>
+            </div>
           </div>
-          <button
-            className="gpt-btn"
-            onClick={() => {
-              handleSubmit();
-            }}
-          >
-            Submit
-          </button>
-          <div className="gpt-response"> {response}.</div>
-        </div>
-        }
+        )}
       </div>
     </div>
   );
