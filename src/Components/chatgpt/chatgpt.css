@@ -6,7 +6,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 70px;
-  padding: 50px;
+  padding: 50px 0;
 }
 
 .gpt-text {
@@ -16,27 +16,66 @@
   font-weight: bold;
 }
 
-.selection-types{
-
+.section-types {
+  margin-top: 20px;
 }
 
-.api-boxes{
-  
+.api-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
 }
 
+.api-item {
+  border-radius: 10px;
+  border: 1px solid #d3d3d3;
+  padding: 20px;
+  height: 80px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+}
+.section-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gpt-api {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d3d3d3;
+}
 .gpt-input {
   width: 500px;
   height: 50px;
   border-radius: 5px;
-  /* padding-left: 5px; */
+  margin-top: 50px;
   border: 1px solid #d3d3d3;
 }
 
 .gpt-input-box {
   outline: none;
+  font-size: 18px;
   height: 45px;
   width: 90%;
+  font-family: "Roboto", sans-serif;
   border: none;
+}
+
+.btn-grp {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .gpt-btn {
@@ -52,10 +91,24 @@
   border-radius: 5px;
   outline: none;
 }
+.gpt-btn-blue {
+  width: 150px;
+  border: 1px solid rgb(84, 61, 255);
+  height: 50px;
+  margin-top: 30px;
+  background: rgb(84, 61, 255);
+  cursor: pointer;
+  font-size: 17px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  outline: none;
+}
 
 .gpt-response {
   font-family: "Roboto", sans-serif;
-  margin-top: 20px;
-  font-size: 20px;
+  margin-top: 50px;
+  font-size: 25px;
   color: #002a35;
+  max-width: 90%;
 }
