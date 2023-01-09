@@ -5,6 +5,7 @@ const { Configuration, OpenAIApi } = require("openai");
 const Chatgpt = () => {
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
+  const [sectionType, setSectionType] = useState("select");
   const configuration = new Configuration({
     apiKey: " ", //  <----- put your API key here   //    visit and register at  (https://beta.openai.com/account/api-keys) for Api keys
   });
@@ -26,28 +27,34 @@ const Chatgpt = () => {
     <div>
       <div className="gpt-container">
         <div className="gpt-text">Ask a Question to your AI friend</div>
+        {sectionType === "select" ? (
+          <div className="section-types">
+            <div className="api-boxes">
 
-        <div className="section-types"></div>
-        <div className="section-inputs"></div>
-        <div className="gpt-input">
-          <input
-            className="gpt-input-box"
-            type="text"
-            onChange={(e) => {
-              setInput(e.target.value);
+            </div>
+
+          </div>
+        ) : <div className="section-inputs">
+          <div className="gpt-input">
+            <input
+              className="gpt-input-box"
+              type="text"
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+            />
+          </div>
+          <button
+            className="gpt-btn"
+            onClick={() => {
+              handleSubmit();
             }}
-          />
+          >
+            Submit
+          </button>
+          <div className="gpt-response"> {response}.</div>
         </div>
-
-        <button
-          className="gpt-btn"
-          onClick={() => {
-            handleSubmit();
-          }}
-        >
-          Submit
-        </button>
-        <div className="gpt-response"> {response}.</div>
+        }
       </div>
     </div>
   );
