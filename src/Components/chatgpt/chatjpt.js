@@ -4,6 +4,7 @@ import { apis } from "../ApiObjects/apis";
 const { Configuration, OpenAIApi } = require("openai");
 
 const Chatgpt = () => {
+  console.log("apis", apis);
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
   const [sectionType, setSectionType] = useState("select");
@@ -31,6 +32,11 @@ const Chatgpt = () => {
         {sectionType === "select" ? (
           <div className="section-types">
             <div className="api-boxes">
+              {apis.map((api, i) => {
+                return (
+                  <div key={i} className="api-item">{api.name.title}</div>
+                )
+              })}
 
             </div>
 
