@@ -2,7 +2,8 @@ export const apis = [
     {
         name: {
             title: "Q&A",
-            desc: "Answer questions based on existing knowledge."
+            desc: "Answer questions based on existing knowledge.",
+            color: "#1DBF83"
         },
         props: {
             model: "text-davinci-003",
@@ -16,7 +17,8 @@ export const apis = [
     {
         name: {
             title: "Chat",
-            desc: "Open ended conversation with an AI assistant."
+            desc: "Open ended conversation with an AI assistant.",
+            color: "#7941DD"
         },
         props: {
             model: "text-davinci-003",
@@ -31,7 +33,8 @@ export const apis = [
     {
         name: {
             title: "Grammer Correction",
-            desc: "Corrects sentences into standard English."
+            desc: "Corrects sentences into standard English.",
+            color: "#EE4046"
         },
         props: {
             model: "text-davinci-003",
@@ -45,7 +48,8 @@ export const apis = [
     {
         name: {
             title: "Explain Code",
-            desc: "Explain a complicated piece of code."
+            desc: "Explain a complicated piece of code.",
+            color: "#E057C2"
         },
         props: {
             model: "code-davinci-002", temperature: 0,
