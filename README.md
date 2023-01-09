@@ -1,4 +1,4 @@
-AiFriend-openAiChatGPT
+#AiFriend-openAiChatGPT
 
 openAI - chatGPT Integration demo in react js
 
