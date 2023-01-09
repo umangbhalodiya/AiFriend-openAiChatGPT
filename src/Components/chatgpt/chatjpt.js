@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./chatgpt.css";
-const { Configuration, OpenAIApi } = require("openai");
 import { apis } from "../ApiObjects/apis";
+const { Configuration, OpenAIApi } = require("openai");
 
 const Chatgpt = () => {
   const [input, setInput] = useState("");
